@@ -16,11 +16,11 @@
       <div class="input_div">
         <form id="registerForm">
           <input type="text" placeholder="Username" name="user_inp" id="inp1" />
-          <input type="email" name="email_inp" placeholder="email" id="inp1" />
-          <input type="Password" name="password_inp" placeholder="Password" id="inp1" />
-          <input type="Password" name="reapet_password" placeholder="Repeat Password" id="inp1" />
+          <input type="email" name="email_inp" placeholder="email" id="inp2" />
+          <input type="Password" name="password_inp" placeholder="Password" id="inp3" />
+          <input type="Password" name="reapet_password" placeholder="Repeat Password" id="inp4" />
 
-          <button id="registerbtn" value="Sign Up" type="submit">Register</button>
+          <button ondblclick="signup()" id="registerbtn" type="submit">Register</button>
         </form>
       </div>
     </div>
@@ -29,42 +29,40 @@
 <script>
 
   const url= "http://localhost:3000/posts"
-  window.addEventListener("load", function(){
-    let registration= document.getElementById("registerForm")
-    registration.addEventListener("submit", (event)=>{
-      event.preventDefault()
 
-      const formData = new FormData(registration);
-      let name= formData.get("user_inp")
-      let email= formData.get("email_inp")
-      let password= formData.get("password_inp")
-      let Repeat= formData.get("reapet_password")
+let form= document.getElementById("registerForm");
+form.addEventListener("submit", postData)
 
-      let obj={
-        name,
-        email,
-        password,
-        reapet_password
-      }
+function postData(e){
+  e.preventDfault()
+      let name = form.elments[0].value
+        let email = form.elments[1].value
+        let password = form.elments[2].value
+        let repeat = form.elments[3].value
 
-      let data = JSON.stringify(obj)
-      register(data)
-    })
-  })
+        let obj = {
+          name,
+          email,
+          password,
+          repeat
+        }
 
-    const register= (data)=>{
+        fetch(url,{
+          "method": "POST",
+          "body": JSON.stringify(obj),
+          "headers": {"content-type" : "application/json"}
+        }).then(resp=>console.log(resp))
+} 
+fetchData()
+  function fetchData(){
+    fetch(url).then(resp=>resp.json()).then(resp=>console.log(resp))
+  }
 
-      fetch(`${url}`,{
-        method : "POST",
-        headers:{
-          'Content-Type' : 'application/json'
-        },
-        body : data
-      })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err))
-    }
-  
+
+function signup(){
+ function signup(){
+  window.location.href = "login.html"
+ }
+}
 
 </script>
