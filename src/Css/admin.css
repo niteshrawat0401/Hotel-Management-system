@@ -1,0 +1,81 @@
+#parent{
+    border: 1px solid burlywood;
+    width: 19%;
+    height:450px;
+    margin: auto;
+    margin-top: 30px;
+}
+#parent h3{
+    text-align: center;
+}
+
+#cardata{
+    margin: auto;
+    /* border: 1px solid red; */
+    width: 10rem;
+    margin-left: 5rem;
+}
+#img{
+    margin: auto;
+    height: 32px;
+    width: 15rem;
+    margin-top: 11px;
+    margin-left: 2rem;
+}
+.radio{
+    display: flex;
+    margin-left: 3rem;
+    /* border: 1px solid red; */
+    height: 31px;
+}
+.img1{
+    display: flex;
+    margin-top: 10px;
+    width: 11rem;
+    height: 40x;
+   margin-top: 20px; 
+  margin-left: 20px;
+}
+
+#single{
+    margin: auto;
+    /* border: 1px solid red; */
+    width: 10rem;
+   margin-top: 10px; 
+    margin-left: 5rem;
+}
+.adults{
+    display: flex;
+    /* border: 1px solid red; */
+    width: 10rem;
+   margin-top: 20px; 
+  margin-left: 2rem;
+  height: 30px;
+}
+
+.capacity{
+    /* border: 1px solid red; */
+    display: flex;
+    margin-top: 10px;
+    width: 16rem;
+    height: 30px;
+   margin-top: 20px; 
+  margin-left: 1rem;
+}
+.cost{
+    display: flex;
+    margin-top: 10px;
+    width: 16rem;
+    height: 30px;
+   margin-top: 20px; 
+  margin-left: 44px;
+}
+.btn{
+    margin-top: 10px;
+    width: 16rem;
+    height: 30px;
+   margin-top: 20px; 
+  margin-left: 44px;
+  background-color:#f7f6f3;
+  cursor: pointer;
+}
