@@ -14,11 +14,11 @@
         <div class="sig">Register</div>
       </div>
       <div class="input_div">
-        <form class="fill_form">
-          <input type="text" placeholder="Username" name="" id="inp1" />
-          <input type="text" name="" placeholder="email" id="inp1" />
-          <input type="text" name="" placeholder="Password" id="inp1" />
-          <input type="text" name="" placeholder="Repeat Password" id="inp1" />
+        <form id="registerForm">
+          <input type="text" placeholder="Username" name="user_inp" id="inp1" />
+          <input type="text" name="email_inp" placeholder="email" id="inp1" />
+          <input type="Password" name="password_inp" placeholder="Password" id="inp1" />
+          <input type="Password" name="reapet_password" placeholder="Repeat Password" id="inp1" />
 
           <button id="registerbtn" type="submit">Register</button>
         </form>
@@ -27,4 +27,44 @@
   </body>
 </html>
 <script>
+
+  const url= "http://localhost:3000/posts"
+  window.addEventListener("load", function(){
+    let registration= document.getElementById("registerForm")
+    registration.addEventListener("submit", (event)=>{
+      event.preventDefault()
+
+      const formData = new FormData(registration);
+      let name= formData.get("user_inp")
+      let email= formData.get("email_inp")
+      let password= formData.get("password_inp")
+      let Repeat= formData.get("reapet_password")
+
+      let obj={
+        name,
+        email,
+        password,
+        reapet_password
+      }
+
+      let data = JSON.stringify(obj)
+      register(data)
+    })
+  })
+
+    const register= (data)=>{
+
+      fetch(`${url}`,{
+        method: "POST",
+        headers:{
+          "Content-Type" : "application/json"
+        },
+        body : data
+      })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err))
+    }
+  
+
 </script>
