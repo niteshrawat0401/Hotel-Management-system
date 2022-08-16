@@ -16,7 +16,7 @@
       <div class="input_div">
         <form id="registerForm">
           <input type="text" placeholder="Username" name="user_inp" id="inp1" />
-          <input type="text" name="email_inp" placeholder="email" id="inp1" />
+          <input type="email" name="email_inp" placeholder="email" id="inp1" />
           <input type="Password" name="password_inp" placeholder="Password" id="inp1" />
           <input type="Password" name="reapet_password" placeholder="Repeat Password" id="inp1" />
 
@@ -55,9 +55,9 @@
     const register= (data)=>{
 
       fetch(`${url}`,{
-        method: "POST",
+        method : "POST",
         headers:{
-          "Content-Type" : "application/json"
+          'Content-Type' : 'application/json'
         },
         body : data
       })
